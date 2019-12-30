@@ -2,8 +2,12 @@ const grpc = require("grpc");
 const protoLoader = require("@grpc/proto-loader");
 
 function getProtoFromPackageDefinition(packageDefinition, packageName) {
-  const pathArr = packageName.split(".");
-  return pathArr.reduce((obj, key) => (obj && obj[key] !== 'undefined') ? obj[key] : undefined, packageDefinition);
+  if (packageName) {
+    const pathArr = packageName.split(".");
+    return pathArr.reduce((obj, key) => (obj && obj[key] !== 'undefined') ? obj[key] : undefined, packageDefinition);
+  } else {
+    return packageDefinition;
+  }
 }
 
 function createClient({ protoPath, packageName, serviceName, options }, address, creds=grpc.credentials.createInsecure()){
@@ -31,7 +35,7 @@ class GrpcServer {
     this.server.addService(proto[serviceName].service, router);
     return this;
   }
-  
+
   listen(address, creds=grpc.ServerCredentials.createInsecure()){
     this.server.bind(address, creds);
     this.server.start();
