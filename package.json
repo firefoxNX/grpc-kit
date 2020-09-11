@@ -20,14 +20,14 @@
   },
   "homepage": "https://github.com/YoshiyukiKato/grpc-kit#readme",
   "peerDependencies": {
-    "grpc": "^1.24.2",
-    "@grpc/proto-loader": "^0.5.3"
+    "grpc": "^1.24.3",
+    "@grpc/proto-loader": "^0.5.5"
   },
   "dependencies": {},
   "devDependencies": {
-    "@grpc/proto-loader": "^0.5.3",
-    "grpc": "^1.24.2",
+    "@grpc/proto-loader": "^0.5.5",
+    "grpc": "^1.24.3",
     "intelli-espower-loader": "^1.0.1",
-    "mocha": "^6.2.2"
+    "mocha": "^8.1.3"
   }
 }
